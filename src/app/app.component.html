@@ -1,0 +1,151 @@
+<div class="search-wrapper sticky-top" [style.background-color]="isNavCollapse ? '#2d2d2d' : 'transparent'"
+[class.shadow-sm]="isNavCollapse">
+  <div class="container">
+    <div class="d-flex justify-content-between align-items-center">
+      <h5 style="color: rgba(255, 255, 255, 0.865);">Developed by: Jalal Alhamami & Turky Alammar</h5>
+    </div>
+  </div>
+</div>
+
+
+<ng-template ngbSlide>
+  <div class="picsum-img-wrapper">
+    <img src="../assets/images/shoaib.jpg" alt="Random second slide">
+  </div>
+  <div class="carousel-caption">
+    <h3>Muscat</h3>
+    <p>Muscat is the capital and most populated city in Oman.</p>
+  </div>
+</ng-template>
+
+
+
+<ngb-carousel>
+  <ng-template ngbSlide>
+    <div class="picsum-img-wrapper">
+      <img src="../assets/images/doha.jpg" alt="Random third slide">
+    </div>
+    <div class="carousel-caption">
+      <h3>Doha</h3>
+      <p>Doha is the capital and most populous city of the State of Qatar.</p>
+    </div>
+  </ng-template>
+ 
+
+  <ng-template ngbSlide>
+    <div class="picsum-img-wrapper">
+      <img src="../assets/images/riyadh.jpg" alt="Random third slide">
+    </div>
+    <div class="carousel-caption">
+      <h3>Riyadh</h3>
+      <p>Riyadh is the political and administrative center of Saudi Arabia.</p>
+    </div>
+  </ng-template>
+
+
+  <ng-template ngbSlide>
+    <div class="picsum-img-wrapper">
+      <img src="../assets/images/manama.jpg" alt="Random third slide">
+    </div>
+    <div class="carousel-caption">
+      <h3>Manama</h3>
+      <p>Manama is the capital and largest city of Bahrain.</p>
+    </div>
+  </ng-template>
+
+  
+  <ng-template ngbSlide>
+    <div class="picsum-img-wrapper">
+      <img src="../assets/images/Sana.jpg" alt="Random third slide">
+    </div>
+    <div class="carousel-caption">
+      <h3>Sana'a</h3>
+      <p>Sana'a is the capital of Yemen.</p>
+    </div>
+  </ng-template>
+
+</ngb-carousel>
+
+<div class="container px-0">
+  <br>
+  <h3 class="main-title">The Weather in Arab cities</h3>
+  <h6 class="main-title"></h6>
+  <drag-scroll #nav [scroll-x-wheel-enabled]="true">
+    <div *ngFor="let p of productList; let i = index" drag-scroll-item>
+      <div class="card shadow-sm">
+
+        
+
+      <div *ngIf="WeatherData.isDay" class="weatherWidgetRow">
+          <i class="fas fa-3x fa-sun sun"></i>  
+      </div>   
+      <div *ngIf="!WeatherData.isDay" class="weatherWidgetRow">
+          <i class="fas fa-3x fa-moon moon"></i>  
+      </div>   
+      <div class="weatherWidgetRow cloudDiv">
+          <i class="fas fa-cloud fa-3x cloud"></i>
+      </div>
+
+      
+
+          <div class="weatherWidgetRow" >{{arabCapitals[i].temp_celcius}}°</div>
+          <div class="weatherWidgetRow" >{{arabCapitals[i].temp_min}}° / {{arabCapitals[i].temp_max}}°</div>
+          <div class="weatherWidgetRow" style="font-size: 12px;">Feels Like: {{arabCapitals[i].temp_feels_like}}°</div>
+          <div class="weatherWidgetRow" style="font-size: 25px;margin-top: 10px;">{{arabCapitals[i].name}}</div>
+          <div class="weatherWidgetRow" style="font-size: 12px;">Humidity: {{arabCapitals[i].humidity}}%</div>
+
+     
+
+      </div>
+    </div>
+  </drag-scroll>
+
+
+  <h3 class="main-title">The weather in European cities</h3>
+  <h6 class="main-title"></h6>
+
+  <drag-scroll #nav [scroll-x-wheel-enabled]="true">
+    <div *ngFor="let p of productList; let i = index" drag-scroll-item>
+      <div class="card shadow-sm">
+
+        
+
+      <div *ngIf="WeatherData.isDay" class="weatherWidgetRow">
+          <i class="fas fa-3x fa-sun sun"></i>  
+      </div>   
+      <div *ngIf="!WeatherData.isDay" class="weatherWidgetRow">
+          <i class="fas fa-3x fa-moon moon"></i>  
+      </div>   
+      <div class="weatherWidgetRow cloudDiv">
+          <i class="fas fa-cloud fa-3x cloud"></i>
+      </div>
+
+      
+
+          <div class="weatherWidgetRow" >{{europeanCapitals[i].temp_celcius}}°</div>
+          <div class="weatherWidgetRow" >{{europeanCapitals[i].temp_min}}° / {{europeanCapitals[i].temp_max}}°</div>
+          <div class="weatherWidgetRow" style="font-size: 12px;">Feels Like: {{europeanCapitals[i].temp_feels_like}}°</div>
+          <div class="weatherWidgetRow" style="font-size: 25px;margin-top: 10px;">{{europeanCapitals[i].name}}</div>
+          <div class="weatherWidgetRow" style="font-size: 12px;">Humidity: {{europeanCapitals[i].humidity}}%</div>
+
+   
+
+      </div>
+    </div>
+  </drag-scroll>
+
+
+
+
+
+
+
+
+
+  <div class="bottom-placeholder"></div>
+  <app-chart></app-chart>
+  <div class="bottom-placeholder"></div>
+  <div class="bottom-placeholder"></div>
+  <div class="bottom-placeholder"></div>
+</div>
+
